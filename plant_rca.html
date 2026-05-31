@@ -1,7 +1,4 @@
-import os
-
-# Define the updated HTML content with grid layout, badges, and icons for better layout complexity
-html_content = """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -43,7 +40,6 @@ html_content = """<!DOCTYPE html>
             border: 1px solid rgba(0, 0, 0, 0.02);
         }
         
-        /* Header section styling */
         .header-tag {
             display: inline-block;
             background-color: #eff6ff;
@@ -82,7 +78,6 @@ html_content = """<!DOCTYPE html>
             font-weight: 700;
         }
         
-        /* Expert Profile Mini Badge */
         .expert-badge {
             background-color: #f1f5f9;
             padding: 16px 24px;
@@ -101,7 +96,6 @@ html_content = """<!DOCTYPE html>
             white-space: nowrap;
         }
 
-        /* Section layout */
         .section {
             margin-bottom: 50px;
         }
@@ -125,9 +119,6 @@ html_content = """<!DOCTYPE html>
             border-radius: 4px;
         }
         
-        /* --- Compact Layout Variations --- */
-        
-        /* 1. Problem Section: 3-Column Grid for Quick Reading */
         .grid-3col {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -153,7 +144,6 @@ html_content = """<!DOCTYPE html>
             margin-bottom: 12px;
         }
 
-        /* 2. Solution Section: Process Row Layout */
         .process-container {
             display: flex;
             flex-direction: column;
@@ -185,7 +175,6 @@ html_content = """<!DOCTYPE html>
             flex: 1;
         }
 
-        /* 3. Results Section: 2-Column High-Impact Split Grid */
         .grid-2col {
             display: grid;
             grid-template-columns: 1.2fr 1fr;
@@ -235,7 +224,6 @@ html_content = """<!DOCTYPE html>
             color: var(--text-light);
         }
         
-        /* Highlight box for solution */
         .quote-box {
             background-color: #faf5ff;
             border: 1px dashed #d8b4fe;
@@ -252,7 +240,6 @@ html_content = """<!DOCTYPE html>
             color: var(--secondary-color);
         }
         
-        /* CTA Section styling */
         .cta-section {
             background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
             color: #ffffff;
@@ -296,7 +283,6 @@ html_content = """<!DOCTYPE html>
             letter-spacing: 0.5px;
         }
         
-        /* Responsive adaptations */
         @media (max-width: 900px) {
             .grid-3col, .grid-2col {
                 grid-template-columns: 1fr;
@@ -319,19 +305,15 @@ html_content = """<!DOCTYPE html>
 <body>
 
 <div class="container">
-    <!-- Top Tag -->
     <div class="header-tag">AI Agent Case Study</div>
     
-    <!-- Title Section -->
     <h1>공장 설비 이상 근본원인분석(RCA) AI Agent 구축 사례</h1>
     <div class="subtitle">"숙련공의 머릿속 지식을 <strong>단 2일 만에</strong> AI 시스템으로 자산화하여 공장 다운타임 최소화"</div>
     
-    <!-- Expert Profile Mini Badge -->
     <div class="expert-badge">
         💡 <span><strong>[검증된 전문성]</strong> 본 프로젝트는 공인된 <strong>정보관리기술사</strong>이자 <strong>AI Agent 기획/개발 전문가</strong>가 직관적인 도메인 해석을 바탕으로 단기간에 설계 및 검증을 완료한 고신뢰성 모델입니다.</span>
     </div>
 
-    <!-- Background & Problem Section (3-Column Grid) -->
     <div class="section">
         <h2 class="section-title">Background & Problem (고객의 페인포인트)</h2>
         <div class="grid-3col">
@@ -353,7 +335,6 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
-    <!-- Solution Section (Process Flow Row Layout) -->
     <div class="section">
         <h2 class="section-title">Dynamic Solution: RCA AI Agent (핵심 해결 방안)</h2>
         <div class="quote-box">
@@ -384,7 +365,6 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
-    <!-- Results Section (High-Impact Split Grid) -->
     <div class="section">
         <h2 class="section-title">Key Results & Value (단 2일 만에 증명한 가치)</h2>
         <div class="grid-2col">
@@ -406,7 +386,6 @@ html_content = """<!DOCTYPE html>
         </div>
     </div>
 
-    <!-- CTA Section -->
     <div class="cta-section">
         <div class="cta-text">
             귀사의 공장 및 플랜트에도 베테랑의 머릿속에만 머물러 있는 핵심 자산이 있습니까?<br>
@@ -420,11 +399,3 @@ html_content = """<!DOCTYPE html>
 
 </body>
 </html>
-"""
-
-# Save the updated content to the file
-file_name = "plant_rca.html"
-with open(file_name, "w", encoding="utf-8") as f:
-    f.write(html_content)
-
-print(f"Compact Layout HTML File created successfully: {file_name}")
