@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Case Study] 공장 설비 이상 근본원인분석(RCA) AI Agent 구축 사례</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --text-dark: #1f2937;
+            --text-light: #4b5563;
+            --bg-light: #f8fafc;
+            --accent-color: #e2e8f0;
+            --success-color: #10b981;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 50px 60px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Header section styling */
+        .header-tag {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid #dbeafe;
+        }
+        
+        h1 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+            line-height: 1.3;
+            margin-bottom: 16px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-weight: 500;
+            position: relative;
+            padding-bottom: 25px;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .subtitle strong {
+            color: #ef4444;
+            font-weight: 700;
+        }
+        
+        /* Expert Profile Mini Badge */
+        .expert-badge {
+            background-color: #f1f5f9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            color: #334155;
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .expert-badge strong {
+            color: var(--primary-color);
+        }
+
+        /* Section layout */
+        .section {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 20px;
+            background-color: var(--secondary-color);
+            margin-right: 12px;
+            border-radius: 4px;
+        }
+        
+        /* List & Card styles */
+        .card-list {
+            list-style: none;
+        }
+        
+        .card-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .card-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.04);
+            border-color: #cbd5e1;
+        }
+        
+        .card-item strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+        
+        .card-item p {
+            font-size: 1rem;
+            color: var(--text-light);
+        }
+        
+        /* Highlight box for solution */
+        .quote-box {
+            background-color: #f8fafc;
+            border: 1px dashed #cbd5e1;
+            padding: 18px 24px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: #334155;
+            text-align: center;
+        }
+        
+        .quote-box span {
+            color: var(--secondary-color);
+        }
+        
+        /* CTA Section styling */
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .cta-text {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .cta-btn {
+            display: inline-block;
+            background-color: #ffffff;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 14px 32px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.05rem;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .cta-btn:hover {
+            background-color: #f8fafc;
+            transform: scale(1.02);
+        }
+
+        /* Footer info */
+        .footer-info {
+            margin-top: 25px;
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Responsive adaptations */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 10px;
+            }
+            .container {
+                padding: 30px 24px;
+            }
+            h1 {
+                font-size: 1.7rem;
+            }
+            .subtitle {
+                font-size: 1.1rem;
+            }
+            .cta-section {
+                padding: 30px 20px;
+            }
+            .cta-text {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Top Tag -->
+    <div class="header-tag">AI Agent Case Study</div>
+    
+    <!-- Title Section -->
+    <h1>공장 설비 이상 근본원인분석(RCA) AI Agent 구축 사례</h1>
+    <div class="subtitle">"숙련공의 머릿속 지식을 <strong>단 2일 만에</strong> AI 시스템으로 자산화하여 공장 다운타임 최소화"</div>
+    
+    <!-- Expert Profile Mini Badge -->
+    <div class="expert-badge">
+        <strong>[검증된 전문성]</strong> 본 프로젝트는 공인된 <strong>정보관리기술사</strong>이자 <strong>AI Agent 기획/개발 전문가</strong>가 직접 문제를 정의하고 설계하여 고도의 신뢰성을 보장합니다.
+    </div>
+
+    <!-- Background & Problem Section -->
+    <div class="section">
+        <h2 class="section-title">Background & Problem (고객의 페인포인트)</h2>
+        <ul class="card-list">
+            <li class="card-item">
+                <strong>경험 의존적 대처 및 리스크 발생</strong>
+                <p>공장 내 핵심 설비에 이상이 발생했을 때, 정비 요원 개인의 경험과 숙련도에만 의지하여 원인 파악 및 초기 대처 속도에 극심한 편차가 존재했습니다.</p>
+            </li>
+            <li class="card-item">
+                <strong>휴먼 리스크 및 기업 지식 공백</strong>
+                <p>베테랑 숙련공이 퇴사하거나 부재할 경우 대응 프로세스가 급격히 저하되며, 신입 정비 사원의 숙련도를 확보하는 데 오랜 시간과 비용이 소요되는 문제가 있었습니다.</p>
+            </li>
+            <li class="card-item">
+                <strong>설비 정지(Down-time)로 인한 막대한 손실</strong>
+                <p>정확한 근본 원인 분석(RCA)의 지연은 플랜트 가동 중단 시간의 장기화로 이어져, 결과적으로 기업에 막대한 금전적·생산적 손실 리스크를 상존시켰습니다.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Solution Section -->
+    <div class="section">
+        <h2 class="section-title">Dynamic Solution: RCA AI Agent (핵심 해결 방안)</h2>
+        <div class="quote-box">
+            "정보관리기술사의 정밀한 도메인 분석력과 <span>초고속 AI Agent 기술</span>의 융합"
+        </div>
+        <ul class="card-list">
+            <li class="card-item">
+                <strong>신속하고 명확한 문제 정의 (Domain 분석)</strong>
+                <p>수개월이 소요되는 기존의 무거운 컨설팅 과정을 혁신적으로 축소하고, 현업의 핵심 페인포인트를 단 하루 만에 정밀 타격하는 문제 정의를 수행합니다.</p>
+            </li>
+            <li class="card-item">
+                <strong>지식 기반 RCA 추론 엔진 설계</strong>
+                <p>과거 정비 이력 데이터, 설비 매뉴얼, 베테랑의 오랜 노하우 아카이브를 LLM과 정교하게 결합하여, 설비의 이상 증상 입력 시 즉각적으로 신뢰도 높은 근본 원인을 추론하는 Agent를 설계합니다.</p>
+            </li>
+            <li class="card-item">
+                <strong>초고속 MVP(Pilot) 구현 및 가시화</strong>
+                <p>오케스트레이션 도구 및 API 아키텍처를 활용, 현업이 직접 직관적인 UI 상에서 데이터 흐름과 효과를 검증할 수 있는 파일럿 시스템을 48시간 이내에 완성합니다.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Results Section -->
+    <div class="section">
+        <h2 class="section-title">Key Results & Value (단 2일 만에 증명한 가치)</h2>
+        <ul class="card-list">
+            <li class="card-item" style="border-left: 4px solid var(--success-color);">
+                <strong>Time-to-Value 극대화 및 프레젠테이션 성공</strong>
+                <p>대규모 SI 발주를 하기 전, 단 2일 만에 실제 동작하는 완성도 높은 파일럿을 구축하여 경영진 및 현업 부서 대상의 효과성 검증 프레젠테이션을 완벽히 마쳤습니다.</p>
+            </li>
+            <li class="card-item" style="border-left: 4px solid var(--success-color);">
+                <strong>정비 가이드 및 가동 가이드 표준화</strong>
+                <p>설비 이상 징후 발생 시 개인의 역량 차이와 무관하게, AI Agent가 즉각적으로 과거 유사 사례 및 매뉴얼 기반의 최적 대응 시나리오를 균일하게 제시합니다.</p>
+            </li>
+            <li class="card-item" style="border-left: 4px solid var(--success-color);">
+                <strong>확실한 ROI 기반의 본 사업 연계</strong>
+                <p>막연한 기술 도입이 아니라 실체 있는 결과물을 눈으로 확인한 후, 보안 및 기간계 시스템 연동을 포함한 Enterprise급 고도화 로드맵을 신뢰성 있게 수립했습니다.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="cta-section">
+        <div class="cta-text">
+            귀사의 공장 및 플랜트에도 베테랑의 머릿속에만 머물러 있는 핵심 자산이 있습니까?<br>
+            수억 원의 비용과 수개월의 시간을 투입하기 전, <strong>단 2일 만에</strong> 귀사의 비즈니스 문제를 해결할<br>
+            핵심 AI Agent의 실체를 직접 확인해 보십시오.
+        </div>
+        <a href="mailto:your-email@example.com" class="cta-btn">무료 비즈니스 진단 및 워크숍 문의하기</a>
+        <div class="footer-info">정보관리기술사 / AI Agent 기획·개발 전문가 드림</div>
+    </div>
+</div>
+
+</body>
+</html>
