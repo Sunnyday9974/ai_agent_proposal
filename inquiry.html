@@ -3,289 +3,281 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Agent 도입을 위한 무료 비즈니스 진단 및 워크숍 신청</title>
+    <title>무료 비즈니스 진단 및 AI Agent 상담 신청</title>
     <style>
         :root {
-            --primary-color: #1e3a8a;
-            --secondary-color: #3b82f6;
-            --text-dark: #0f172a;
-            --text-light: #475569;
-            --bg-light: #f8fafc;
-            --accent-color: #e2e8f0;
-            --success-color: #10b981;
+            --primary-color: #0f172a;
+            --brand-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --bg-global: #f8fafc;
+            --card-border: #e2e8f0;
         }
-        
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
-        
+
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-            background-color: var(--bg-light);
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-global);
             color: var(--text-dark);
             line-height: 1.6;
-            padding: 50px 20px;
+            padding: 60px 20px;
         }
-        
+
         .container {
-            max-width: 700px;
+            max-width: 1100px;
             margin: 0 auto;
-            background: #ffffff;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
-            padding: 50px 50px;
-            border: 1px solid rgba(0, 0, 0, 0.02);
         }
-        
-        .back-link {
+
+        .back-to-hub {
             display: inline-flex;
             align-items: center;
             color: var(--text-light);
             text-decoration: none;
             font-size: 0.95rem;
-            margin-bottom: 30px;
+            font-weight: 600;
+            margin-bottom: 25px;
             transition: color 0.2s;
-        }
-        
-        .back-link:hover {
-            color: var(--secondary-color);
-        }
-        
-        h1 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            line-height: 1.4;
-            margin-bottom: 12px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-        
-        .description {
-            font-size: 1.05rem;
-            color: var(--text-light);
-            margin-bottom: 40px;
-        }
-        
-        .benefit-box {
-            background-color: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 35px;
-        }
-        
-        .benefit-title {
-            font-size: 1rem;
-            color: #166534;
-            font-weight: 700;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
             gap: 6px;
         }
         
-        .benefit-list {
-            list-style-type: none;
-            padding-left: 0;
+        .back-to-hub:hover {
+            color: var(--accent-color);
         }
-        
-        .benefit-list li {
-            font-size: 0.95rem;
-            color: #14532d;
-            margin-bottom: 6px;
-            position: relative;
-            padding-left: 16px;
+
+        .main-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
         }
-        
-        .benefit-list li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--success-color);
-            font-weight: bold;
+
+        .main-subtitle {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 40px;
         }
-        
-        /* Form Styling */
+
+        /* 폼과 안내 영역을 분할하는 2컬럼 레이아웃 */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* 왼쪽: 신청 폼 스타일 */
+        .form-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.02);
+            border: 1px solid var(--card-border);
+        }
+
         .form-group {
             margin-bottom: 24px;
         }
-        
+
         .form-group label {
             display: block;
             font-size: 0.95rem;
             font-weight: 700;
-            color: var(--text-dark);
+            color: var(--primary-color);
             margin-bottom: 8px;
         }
-        
-        .form-group label .required {
+
+        .form-group label span {
             color: #ef4444;
             margin-left: 4px;
         }
-        
+
         .form-control {
             width: 100%;
             padding: 12px 16px;
-            font-size: 1rem;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--card-border);
             border-radius: 8px;
-            background-color: #ffffff;
+            font-size: 0.95rem;
             color: var(--text-dark);
-            transition: border-color 0.2s, box-shadow 0.2s;
+            transition: border-color 0.2s;
+            font-family: inherit;
         }
-        
+
         .form-control:focus {
             outline: none;
-            border-color: var(--secondary-color);
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+            border-color: var(--accent-color);
         }
-        
-        select.form-control {
-            appearance: none;
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat;
-            background-position: right 16px center;
-            background-size: 16px;
-            padding-right: 40px;
-        }
-        
+
         textarea.form-control {
+            height: 140px;
             resize: vertical;
-            min-height: 120px;
         }
-        
-        .privacy-checkbox {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-top: 30px;
-            margin-bottom: 35px;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            cursor: pointer;
-        }
-        
-        .privacy-checkbox input {
-            margin-top: 3px;
-            width: 16px;
-            height: 16px;
-            cursor: pointer;
-        }
-        
-        .submit-btn {
+
+        .btn-submit {
             width: 100%;
-            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #ffffff;
             border: none;
             padding: 16px;
-            font-size: 1.1rem;
-            font-weight: 700;
             border-radius: 8px;
+            font-size: 1.05rem;
+            font-weight: 700;
             cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(29, 78, 216, 0.15);
+            transition: opacity 0.2s;
+            margin-top: 10px;
         }
-        
-        .submit-btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(29, 78, 216, 0.25);
+
+        .btn-submit:hover {
+            opacity: 0.95;
         }
-        
-        .submit-btn:active {
-            transform: translateY(0);
+
+        /* 오른쪽: 비즈니스 가이드 패널 스타일 */
+        .guide-card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid var(--card-border);
         }
-        
-        .footer-text {
-            text-align: center;
+
+        .guide-box {
+            margin-bottom: 35px;
+        }
+
+        .guide-box h3 {
+            font-size: 1.15rem;
+            color: var(--brand-color);
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-box ul {
+            list-style: none;
+        }
+
+        .guide-box ul li {
+            font-size: 0.95rem;
+            color: var(--text-dark);
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .guide-box ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: 700;
+        }
+
+        /* 비즈니스 모델 방어용 정책 안내 문구 */
+        .policy-note {
+            background-color: var(--bg-global);
+            border-radius: 8px;
+            padding: 16px;
             font-size: 0.85rem;
             color: var(--text-light);
-            margin-top: 25px;
+            line-height: 1.5;
         }
-        
-        @media (max-width: 768px) {
-            body {
-                padding: 20px 10px;
-            }
-            .container {
-                padding: 35px 24px;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
+
+        .policy-note strong {
+            color: var(--primary-color);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 900px) {
+            .content-grid { grid-template-columns: 1fr; gap: 30px; }
+            body { padding: 40px 15px; }
+            .form-card, .guide-card { padding: 25px; }
+            .main-title { font-size: 1.6rem; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Back to Case Study -->
-    <a href="plant_rca.html" class="back-link">← 사례 분석 페이지로 돌아가기</a>
-    
-    <h1>무료 비즈니스 진단 및 1-Day 워크숍 신청</h1>
-    <p class="description">정보관리기술사이자 AI Agent 전문가가 귀사의 비즈니스 병목 구간을 직접 진단하고, 48시간 내에 실체화할 수 있는 AI Agent 모델을 제안해 드립니다.</p>
-    
-    <!-- Benefits Badge -->
-    <div class="benefit-box">
-        <div class="benefit-title">🎁 신청 기업 한정 특별 혜택</div>
-        <ul class="benefit-list">
-            <li>현업 페인포인트 타격 중심의 1:1 맞춤형 무료 비즈니스 진단 (온/오프라인)</li>
-            <li>2일(48시간) 초고속 AI Agent MVP 파일럿 구축 우선권 부여</li>
-            <li>AI Agent 프로토타입 체험 및 향후 운영 방안 논의</li>
-        </ul>
+    <a href="index.html" class="back-to-hub">← 전체 유스케이스 목록으로 가기</a>
+
+    <h1 class="main-title">무료 비즈니스 진단 및 상담 신청</h1>
+    <p class="main-subtitle">정보관리기술사의 정밀 프로세스 분석을 통해 AI Agent 도입의 최적 접점을 찾아드립니다.</p>
+
+    <div class="content-grid">
+        <div class="form-card">
+            <form action="https://formspree.io/f/mabcdefg" method="POST" onsubmit="alert('신청이 성공적으로 접수되었습니다. 확인 후 24시간 이내에 기재해 주신 연락처로 안내해 드리겠습니다.');">
+                
+                <div class="form-group">
+                    <label for="company">회사명 / 소속 부서<span>*</span></label>
+                    <input type="text" id="company" name="company" class="form-control" placeholder="예: OO전자 생산기술팀 / 개인 신청 시 '개인' 기재" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">성함 / 직급<span>*</span></label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="예: 홍길동 팀장" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일 주소<span>*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="example@company.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">연락처 (휴대폰 또는 직통 번호)<span>*</span></label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="painpoint">현재 현업에서 가장 해결하고 싶은 업무적 병목이나 문제점<span>*</span></label>
+                    <textarea id="painpoint" name="painpoint" class="form-control" placeholder="AI Agent를 적용하고 싶거나 매일 반복되어 자동화가 절실한 수작업, 규정 검색, 데이터 요약 등의 애로사항을 자유롭게 적어주세요." required></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">무료 비즈니스 진단 및 상담 신청서 제출</button>
+            </form>
+        </div>
+
+        <div class="guide-card">
+            <div class="guide-box">
+                <h3>📢 진단 신청 고객 대상 3대 혜택</h3>
+                <ul>
+                    <li>현업 페인포인트 타격 중심의 1:1 맞춤형 무료 비즈니스 진단 (온/오프라인)</li>
+                    <li>귀사 프로세스 분석을 통한 맞춤형 AI Agent 도입 타겟 범위 제안</li>
+                    <li>AI Agent 시범 구동 모델 체험 및 향후 세부 운영 방안 논의</li>
+                </ul>
+            </div>
+
+            <div class="guide-box">
+                <h3>🔄 도입 검증 프로세스</h3>
+                <ul>
+                    <li><strong>STEP 01.</strong> 신청서 접수 및 현업 Pain-point 사전 검토</li>
+                    <li><strong>STEP 02.</strong> 1-Day 정밀 진단 미팅 (핵심 자동화 구간 정의)</li>
+                    <li><strong>STEP 03.</strong> 1-Week 초고속 시범 구동 모델 구축 및 현업 검증</li>
+                    <li><strong>STEP 04.</strong> 실무 인프라 반영 및 지속적 구독/유상 운영 전환 협의</li>
+                </ul>
+            </div>
+
+            <div class="policy-note">
+                💡 <strong>안내 사항 (비용 정책):</strong><br>
+                본 신청을 통한 1:1 비즈니스 정밀 진단 및 아키텍처 범위 수립(STEP 01~02)까지는 <strong>전액 무료</strong>로 진행됩니다. 이후 단계인 '1주일 시범 구동 모델 구축(STEP 03)'은 진단 미팅 결과에 따라 상호 협의하에 <strong>합리적인 보증금 형태(본 계약 전환 시 전액 환불 및 차감)</strong>로 안전하게 진행됩니다.
+            </div>
+        </div>
     </div>
-    
-    <!-- Inquiry Form -->
-    <form action="https://formspree.io/f/xojbzleb" method="POST" onsubmit="alert('신청이 완료되었습니다. 확인 후 24시간 이내에 연락드리겠습니다.');">
-        <div class="form-group">
-            <label for="company_name">회사명 / 소속 부서 <span class="required">*</span></label>
-            <input type="text" id="company_name" name="company_name" class="form-control" placeholder="예: OO제조공업 / 생산관리팀" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="name">신청자 성함 / 직급 <span class="required">*</span></label>
-            <input type="text" id="name" name="name" class="form-control" placeholder="예: 홍길동 / 팀장" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="email">이메일 주소 <span class="required">*</span></label>
-            <input type="email" id="email" name="email" class="form-control" placeholder="예: partner@company.com" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="phone">연락처 <span class="required">*</span></label>
-            <input type="tel" id="phone" name="phone" class="form-control" placeholder="예: 010-1234-5678" required>
-        </div>
-        
-        <div class="form-group">
-            <label for="industry">비즈니스 분야</label>
-            <select id="industry" name="industry" class="form-control">
-                <option value="">선택해 주세요</option>
-                <option value="manufacturing">제조 / 플랜트 / 정비</option>
-                <option value="logistics">물류 / 유통 / 공급망</option>
-                <option value="finance">금융 / 여신 / 법무</option>
-                <option value="it">IT / 소프트웨어 / 서비스</option>
-                <option value="cs">고객 서비스 (CS) / 운영</option>
-                <option value="other">기타</option>
-            </select>
-        </div>
-        
-        <div class="form-group">
-            <label for="painpoint">현재 겪고 있는 비즈니스 어려움 (선택)</label>
-            <textarea id="painpoint" name="painpoint" class="form-control" placeholder="AI Agent를 통해 자동화하거나 해결하고 싶으신 업무적 한계나 페인포인트를 자유롭게 적어주세요. (예: 특정 설비 이상 시 정비 지식 공유 지연 등)"></textarea>
-        </div>
-        
-        <label class="privacy-checkbox">
-            <input type="checkbox" required>
-            <span>[필수] 개인정보 수집 및 이용에 동의합니다. (수집 항목: 회사명, 성함, 이메일, 연락처 / 보유 목적: 비즈니스 진단 및 워크숍 상담 안내)</span>
-        </label>
-        
-        <button type="submit" class="submit-btn">무료 비즈니스 진단 신청서 제출하기</button>
-    </form>
-    
-    <p class="footer-text">본 진단은 정보관리기술사의 전문 컨설팅 보안 가이드를 준수합니다.</p>
 </div>
+
+<p class="footer-text">AI Agent 기획·개발 전문가 드림</p>
 
 </body>
 </html>
