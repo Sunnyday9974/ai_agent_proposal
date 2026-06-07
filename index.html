@@ -49,9 +49,9 @@
             position: relative;
         }
         
-/* 헤드라인 크기 정밀 다운사이징 */
+        /* 헤드라인 크기 정밀 다운사이징 */
         .hero-section h1 {
-            font-size: 1.6rem; /* 기존 2.3rem에서 대폭 축소 */
+            font-size: 1.6rem; 
             color: #334155; /* 약간 더 부드러운 다크 그레이 */
             font-weight: 600; /* 질문은 너무 무겁지 않게 */
             line-height: 1.5;
@@ -63,7 +63,7 @@
         .hero-section h1 span {
             display: block;
             margin-top: 14px;
-            font-size: 1.9rem; /* 기존 2.6rem에서 대폭 축소 */
+            font-size: 1.9rem; 
             color: var(--brand-color);
             font-weight: 800; /* 핵심 무기 강조 문구만 명확하게 극대화 */
             letter-spacing: -0.8px;
@@ -103,7 +103,7 @@
             word-break: keep-all;
         }
         
-        /* 구분선 지우고 디자인적 공백으로 자연스럽게 연결 */
+        /* 디자인적 공백으로 자연스럽게 연결 */
         .section-divider {
             height: 60px;
         }
@@ -244,90 +244,4 @@
         .footer-text {
             margin-top: 35px;
             font-size: 0.85rem;
-            color: var(--text-light);
-            text-align: center;
-            letter-spacing: 0.5px;
-        }
-
-        /* 반응형 모바일 브레이크포인트 최적화 */
-        @media (max-width: 900px) {
-            body { padding: 20px 10px; }
-            .unified-wrapper { padding: 40px 24px; }
-            .grid-usecases { grid-template-columns: 1fr; }
-            .hero-section h1 { font-size: 1.7rem; }
-            .hero-section h1 span { font-size: 1.9rem; }
-            .action-panel h2 { font-size: 1.35rem; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="unified-wrapper">
-    <div class="hero-section">
-        <h1>"스스로 판단하고 일하는 AI Agent의 시대라는데,<br>정작 내 업무 어디에 어떻게 연결해야 할지 막막하셨습니까?"
-            <span>단 1주일 만에 눈으로 확인하는 실무형 AI 무기를 만듭니다.</span>
-        </h1>
-        <p class="hero-desc">
-            수많은 기업이 AI Agent의 필요성을 인지하면서도, 정작 어떤 업무에 어떻게 적용해야 할지 몰라 실행을 주저하고 있습니다. 막연한 개념 학습에 시간을 허비하거나 수개월짜리 대형 프로젝트를 섣불리 발주하기 전, <strong>정밀한 비즈니스 문제 정의</strong>를 통해 단 1주일 만에 작동 가능한 실체로 마주하는 맞춤형 파일럿의 검증 가치를 직접 경험해 보십시오.
-        </p>
-        <div class="value-propositions">
-            <h3>🎯 핵심 차별성: 업무 맞춤형 파일럿 초고속 시각화</h3>
-            <p>제공해 주시는 가상의 시나리오와 샘플 데이터를 기반으로, 현업의 가장 치명적인 페인포인트가 AI Agent를 통해 어떻게 자동화되고 해결되는지 독립된 환경에서 단 1주일 만에 구동 가능한 모델로 구현하여 직관적인 시연 환경을 제공합니다.</p>
-        </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <h2 class="dashboard-title">비즈니스 도메인별 맞춤형 AI Agent 라인업</h2>
-    <div class="grid-usecases">
-        
-        <a href="plant_rca.html" class="usecase-card">
-            <div class="card-top">
-                <span class="card-tag tag-prod">제조 / 플랜트 / 운영</span>
-                <div class="card-title">[정비 가이드 AI] 설비 이상 징후 분석 및 숙련공 노하우 자산화</div>
-                <p class="card-desc">설비 이상 발생 시 베테랑의 머릿속 암묵지와 기술 매뉴얼을 추론 엔진과 실시간 매칭하여, 담당자의 부재나 숙련도 편차에 무관하게 다운타임을 최소화하는 표준 가이드를 즉각 제시합니다.</p>
-            </div>
-            <div class="card-action">실제 성공 사례 분석 보기 →</div>
-        </a>
-
-        <a href="inquiry.html" class="usecase-card">
-            <div class="card-top">
-                <span class="card-tag tag-office">경영지원 / 인사 / 법무</span>
-                <div class="card-title">[사내 규정 AI 질의응답] 복잡한 사규·계약서 3초 검색 및 초안 자동 생성</div>
-                <p class="card-desc">방대한 사내 규정, 계약서 문서, 업무 가이드라인 아카이브 속에서 사용자가 원하는 최적의 답변을 단 3초 만에 추론하여 운영 리스크를 사전 스크리닝하고 필요한 초안을 자동 생성합니다.</p>
-            </div>
-            <div class="card-action">도입 가이드 및 문의하기 →</div>
-        </a>
-
-        <a href="inquiry.html" class="usecase-card">
-            <div class="card-top">
-                <span class="card-tag tag-mkt">마케팅 / 세일즈 / 기획</span>
-                <div class="card-title">[마켓 리서치 AI 자동화] 매일 저녁 시장 트렌드 및 원자재·주가 자동 요약</div>
-                <p class="card-desc">흩어져 있는 글로벌 시장 정보, 경쟁사 동향, 주가 및 원자재 가격 지표 데이터를 주기적으로 크롤링 및 요약 자동화하여 전사 의사결정 대시보드에 실시간으로 반영합니다.</p>
-            </div>
-            <div class="card-action">도입 가이드 및 문의하기 →</div>
-        </a>
-
-        <a href="inquiry.html" class="usecase-card">
-            <div class="card-top">
-                <span class="card-tag tag-cs">고객 서비스 / 운영 효율화</span>
-                <div class="card-title">[상담원 AI 어시스턴트] 까다로운 고객 문의 맞춤형 답변 스크립트 추천</div>
-                <p class="card-desc">단순 챗봇의 한계를 넘어 고도화된 기술 문의나 불만 사항 인입 시, 과거 유사 처리 이력을 정밀 역추적하여 전문 상담원에게 최적의 답변 스크립트와 정밀 시나리오를 가이드합니다.</p>
-            </div>
-            <div class="card-action">도입 가이드 및 문의하기 →</div>
-        </a>
-
-    </div>
-    </div>
-
-    <div class="action-panel">
-        <h2>"우리 부서의 어떤 업무를 AI Agent로 개조할 수 있을까?"</h2>
-        <p>어디서부터 손을 대야 할지, 어떤 영역에 결합해야 가장 확실한 효과를 낼 수 있을지 고민되신다면<br>지금 바로 전문가의 1:1 맞춤형 무료 비즈니스 진단과 시범 모델 구축 상담을 신청해 보십시오.</p>
-        <a href="inquiry.html" class="btn-submit">무료 비즈니스 진단 및 상담 신청</a>
-    </div>
-</div>
-
-<p class="footer-text">AI Agent 기획·개발 전문가 드림</p>
-
-</body>
-</html>
+            color
