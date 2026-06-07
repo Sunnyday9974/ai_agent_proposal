@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Case Study] 공장 설비 이상 근본원인분석(RCA) AI Agent 구축 사례</title>
+    <title>[Case Study] 설비 이상 징후 분석 및 노하우 자산화 AI Agent 구축 사례</title>
     <style>
         :root {
-            --primary-color: #1e3a8a;
+            --primary-color: #0f172a;
+            --brand-color: #1e40af;
             --secondary-color: #3b82f6;
-            --text-dark: #0f172a;
-            --text-light: #475569;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
             --bg-light: #f8fafc;
             --accent-color: #e2e8f0;
             --success-color: #10b981;
@@ -23,7 +24,7 @@
         }
         
         body {
-            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
@@ -35,12 +36,11 @@
             margin: 0 auto;
             background: #ffffff;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06);
+            box-shadow: 0 20px 40px rgba(15, 23, 42, 0.04);
             padding: 60px 70px;
-            border: 1px solid rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(15, 23, 42, 0.02);
         }
 
-        /* 메인 홈 이동 링크 스타일 추가 */
         .back-to-hub {
             display: inline-flex;
             align-items: center;
@@ -72,16 +72,16 @@
         }
         
         h1 {
-            font-size: 2.3rem;
+            font-size: 2.1rem;
             color: var(--primary-color);
-            line-height: 1.3;
+            line-height: 1.35;
             margin-bottom: 16px;
             font-weight: 800;
             letter-spacing: -0.5px;
         }
         
         .subtitle {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: var(--text-light);
             margin-bottom: 40px;
             font-weight: 500;
@@ -91,7 +91,7 @@
         }
         
         .subtitle strong {
-            color: #ef4444;
+            color: var(--brand-color);
             font-weight: 700;
         }
         
@@ -102,14 +102,14 @@
             margin-bottom: 45px;
             font-size: 0.95rem;
             color: #334155;
-            border-left: 5px solid var(--primary-color);
+            border-left: 5px solid var(--brand-color);
             display: flex;
             align-items: center;
             gap: 12px;
         }
         
         .expert-badge strong {
-            color: var(--primary-color);
+            color: var(--brand-color);
             white-space: nowrap;
         }
 
@@ -118,7 +118,7 @@
         }
         
         .section-title {
-            font-size: 1.4rem;
+            font-size: 1.35rem;
             color: var(--primary-color);
             margin-bottom: 24px;
             font-weight: 700;
@@ -129,8 +129,8 @@
         .section-title::before {
             content: "";
             display: inline-block;
-            width: 6px;
-            height: 22px;
+            width: 5px;
+            height: 20px;
             background-color: var(--secondary-color);
             margin-right: 12px;
             border-radius: 4px;
@@ -178,7 +178,7 @@
         }
         
         .process-step {
-            background: var(--primary-color);
+            background: var(--brand-color);
             color: #ffffff;
             font-weight: 800;
             font-size: 0.9rem;
@@ -231,7 +231,7 @@
 
         .card-title {
             font-size: 1.05rem;
-            color: #0f172a;
+            color: var(--primary-color);
             font-weight: 700;
             margin-bottom: 6px;
         }
@@ -258,17 +258,17 @@
         }
         
         .cta-section {
-            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: #ffffff;
             padding: 45px;
             border-radius: 16px;
             text-align: center;
             margin-top: 60px;
-            box-shadow: 0 10px 25px rgba(29, 78, 216, 0.2);
+            box-shadow: 0 10px 25px rgba(15, 23, 42, 0.1);
         }
         
         .cta-text {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 600;
             line-height: 1.6;
             margin-bottom: 25px;
@@ -279,18 +279,16 @@
             background-color: #ffffff;
             color: var(--primary-color);
             font-weight: 700;
-            padding: 14px 36px;
-            border-radius: 8px;
+            padding: 14px 42px;
+            border-radius: 6px;
             text-decoration: none;
             font-size: 1.05rem;
             transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .cta-btn:hover {
             background-color: #f8fafc;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255,255,255,0.2);
+            transform: translateY(-1px);
         }
 
         .footer-info {
@@ -311,7 +309,7 @@
                 padding: 40px 24px;
             }
             h1 {
-                font-size: 1.8rem;
+                font-size: 1.7rem;
             }
             .subtitle {
                 font-size: 1.1rem;
@@ -326,8 +324,8 @@
 
     <div class="header-tag">AI Agent Case Study</div>
     
-    <h1>공장 설비 이상 근본원인분석(RCA) AI Agent 구축 사례</h1>
-    <div class="subtitle">"숙련공의 머릿속 지식을 <strong>단 2일 만에</strong> AI 시스템으로 자산화하여 공장 다운타임 최소화"</div>
+    <h1>[정비 가이드 AI] 설비 이상 징후 분석 및 숙련공 노하우 자산화</h1>
+    <div class="subtitle">"숙련공의 머릿속 암묵지를 <strong>단 1주일 만에</strong> 시범 구동 모델로 실체화하여 다운타임 최소화"</div>
     
     <div class="expert-badge">
         💡 <span><strong>[검증된 전문성]</strong> 본 프로젝트는 공인된 <strong>정보관리기술사</strong>이자 <strong>AI Agent 기획/개발 전문가</strong>가 직관적인 도메인 해석을 바탕으로 단기간에 설계 및 검증을 완료한 고신뢰성 모델입니다.</span>
@@ -357,14 +355,14 @@
     <div class="section">
         <h2 class="section-title">Dynamic Solution: RCA AI Agent (핵심 해결 방안)</h2>
         <div class="quote-box">
-            "가장 무거운 문제를 가장 빠르고 가볍게 해결하는 프로토타이핑 타격 전략"
+            "가장 무거운 문제를 비즈니스 리스크 없이 가볍게 검증하는 타격 전략"
         </div>
         <div class="process-container">
             <div class="process-card">
                 <div class="process-step">STEP 01</div>
                 <div class="process-body">
                     <div class="card-title">정밀 1-Day 문제 정의 (Domain 분석)</div>
-                    <p class="card-desc">수개월이 걸리는 컨설팅 과정을 혁신적으로 생략, 현업의 병목 지점을 하루 만에 정밀 진단하여 핵심 타겟을 수립합니다.</p>
+                    <p class="card-desc">수개월이 걸리는 무거운 사내 컨설팅 과정을 혁신적으로 생략, 현업의 업무적 병목 지점을 하루 만에 정밀 진단하여 핵심 타겟을 수립합니다.</p>
                 </div>
             </div>
             <div class="process-card">
@@ -377,29 +375,29 @@
             <div class="process-card">
                 <div class="process-step">STEP 03</div>
                 <div class="process-body">
-                    <div class="card-title">2-Day 초고속 MVP 가시화</div>
-                    <p class="card-desc">검증된 자동화 도구와 유연한 시스템 연동을 활용하여, 현업이 UI 화면에서 직접 데이터 흐름을 체감하고 검증할 수 있는 파일럿을 48시간 내에 표출합니다.</p>
+                    <div class="card-title">1-Week 초고속 시범 구동 모델 실체화</div>
+                    <p class="card-desc">귀사의 사내 시스템 변경 없이 제공해 주시는 가상 시나리오와 샘플 데이터를 기반으로, AI Agent가 작동하는 실체를 단 1주일 만에 구축하여 시연 환경을 제공합니다.</p>
                 </div>
             </div>
         </div>
     </div>
 
     <div class="section">
-        <h2 class="section-title">Key Results & Value (단 2일 만에 증명한 가치)</h2>
+        <h2 class="section-title">Key Results & Value (실전 파일럿으로 증명한 가치)</h2>
         <div class="grid-2col">
             <div class="result-main-card">
-                <div class="highlight-title">⏱️ Time-to-Value 극대화</div>
-                <div class="card-title" style="font-size: 1.15rem; color: #15803d; margin-bottom: 10px;">단 2일 만에 구현된 가시성</div>
-                <p class="card-desc" style="color: #166534;">막연한 기획서 단계를 넘어 실제 동작하는 완성도 높은 파일럿 시스템을 48시간 안에 구축, 경영진 대상의 효과성 검증 프레젠테이션을 단숨에 성공시켰습니다.</p>
+                <div class="highlight-title">⏱️ 실전 2일 만의 MVP 성공 실화</div>
+                <div class="card-title" style="font-size: 1.1rem; color: #15803d; margin-bottom: 10px;">발전 설비 도메인 검증 완료</div>
+                <p class="card-desc" style="color: #166534; font-size: 0.92rem;">실제 발전소 현업의 복잡한 설비 이상 대처 문제를 단 2일 만에 시범 작동 모델로 빌드하여 경영진 및 현업 대상의 효과성 검증 프레젠테이션을 단숨에 성공시킨 독보적인 빌딩 트랙 레코드를 보유하고 있습니다.</p>
             </div>
             <div class="result-sub-group">
                 <div class="result-sub-card">
                     <div class="card-title">정비 대응 표준화</div>
-                    <p class="card-desc">이상 발생 시 담당자의 숙련도 편차 없이 AI가 매뉴얼과 최적 가이드를 일관되게 즉각 제시합니다.</p>
+                    <p class="card-desc">이상 발생 시 담당자의 숙련도 편차 없이 AI가 기술 노하우와 최적 가이드를 일관되게 즉각 제시합니다.</p>
                 </div>
                 <div class="result-sub-card">
-                    <div class="card-title">확실한 ROI 기반 본 사업 연계</div>
-                    <p class="card-desc">눈으로 직접 검증한 결과물을 토대로 Enterprise급(보안, 기간계 연동) 고도화 로드맵을 안전하게 수립합니다.</p>
+                    <div class="card-title">확실한 효과 기반의 본 사업 연계</div>
+                    <p class="card-desc">독립된 환경에서 눈으로 직접 검증한 결과물을 토대로 Enterprise급 고도화(유상 유지보수 및 구독 운영) 로드맵을 안전하게 협의합니다.</p>
                 </div>
             </div>
         </div>
@@ -407,12 +405,12 @@
 
     <div class="cta-section">
         <div class="cta-text">
-            귀사의 공장 및 플랜트에도 베테랑의 머릿속에만 머물러 있는 핵심 자산이 있습니까?<br>
-            수억 원의 비용과 수개월의 시간을 투입하기 전, <strong>단 2일 만에</strong> 귀사의 비즈니스 문제를 해결할<br>
-            핵심 AI Agent의 실체를 직접 확인해 보십시오.
+            귀사의 플랜트 현장에도 베테랑의 머릿속에만 머물러 있는 핵심 자산이 있습니까?<br>
+            막대한 인프라 초기 투자 부담 없이, <strong>단 1주일 만에 눈앞에서 돌아가는 AI Agent의 실체</strong>를 직접 확인해 보십시오.<br>
+            시범 구동 후 실제 현업 적용 및 지속적인 유상 유지관리(구독 전환) 여부를 유연하게 결정하실 수 있습니다.
         </div>
-        <a href="inquiry.html" class="cta-btn">무료 비즈니스 진단 및 워크숍 문의하기</a>
-        <div class="footer-info">정보관리기술사 / AI Agent 기획·개발 전문가 드림</div>
+        <a href="inquiry.html" class="cta-btn">무료 비즈니스 진단 및 상담 신청</a>
+        <div class="footer-info">AI Agent 기획·개발 전문가 드림</div>
     </div>
 </div>
 
