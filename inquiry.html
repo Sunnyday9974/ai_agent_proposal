@@ -119,6 +119,51 @@
             resize: vertical;
         }
 
+        /* 개인정보 동의 영역 세련되게 스타일링 */
+        .privacy-group {
+            margin-top: 30px;
+            background: var(--bg-global);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+        }
+
+        .privacy-box h4 {
+            font-size: 0.85rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .privacy-text {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            line-height: 1.5;
+            height: 90px;
+            overflow-y: auto;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid var(--card-border);
+            margin-bottom: 12px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            font-size: 0.9rem !important;
+            font-weight: 600 !important;
+            color: var(--primary-color) !important;
+        }
+
+        .checkbox-label input {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
         .btn-submit {
             width: 100%;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -130,7 +175,7 @@
             font-weight: 700;
             cursor: pointer;
             transition: opacity 0.2s;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .btn-submit:hover {
@@ -218,7 +263,7 @@
 
     <div class="content-grid">
         <div class="form-card">
-            <form action="https://formspree.io/f/mabcdefg" method="POST" onsubmit="alert('신청이 성공적으로 접수되었습니다. 확인 후 24시간 이내에 기재해 주신 연락처로 안내해 드리겠습니다.');">
+            <form action="https://formspree.io/f/xojbzleb" method="POST" onsubmit="alert('신청이 성공적으로 접수되었습니다. 확인 후 24시간 이내에 기재해 주신 연락처로 안내해 드리겠습니다.');">
                 
                 <div class="form-group">
                     <label for="company">회사명 / 소속 부서<span>*</span></label>
@@ -243,6 +288,22 @@
                 <div class="form-group">
                     <label for="painpoint">현재 현업에서 가장 해결하고 싶은 업무적 병목이나 문제점<span>*</span></label>
                     <textarea id="painpoint" name="painpoint" class="form-control" placeholder="AI Agent를 적용하고 싶거나 매일 반복되어 자동화가 절실한 수작업, 규정 검색, 데이터 요약 등의 애로사항을 자유롭게 적어주세요." required></textarea>
+                </div>
+
+                <div class="form-group privacy-group">
+                    <div class="privacy-box">
+                        <h4>[필수] 개인정보 및 비즈니스 요구사항 수집·이용 동의</h4>
+                        <div class="privacy-text">
+                            1. 수집 항목: 회사명, 소속 부서, 성함, 직급, 이메일 주소, 연락처, 업무적 병목 및 요구사항<br>
+                            2. 수집 목적: 맞춤형 1:1 무료 비즈니스 진단, 상담 연락, 시범 구동 모델 제안 및 후속 운영 방안 협의<br>
+                            3. 보유 기간: 목적 달성 후 즉시 파기 (단, 안내 및 상담 이력 관리를 위해 최대 1년간 보관 후 파기)<br>
+                            4. 귀하는 동의를 거부할 권리가 있으나, 동의 거부 시 무료 비즈니스 진단 서비스 제공이 제한됩니다.
+                        </div>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="privacy_agree" name="privacy_agree" required>
+                        <span>위 개인정보 수집 및 이용 동의에 동의합니다.</span>
+                    </label>
                 </div>
 
                 <button type="submit" class="btn-submit">무료 비즈니스 진단 및 상담 신청서 제출</button>
@@ -277,7 +338,10 @@
     </div>
 </div>
 
-<p class="footer-text">AI Agent 기획·개발 전문가 드림</p>
+<p class="footer-text" style="margin-top: 50px; line-height: 1.5; font-size: 0.8rem;">
+    개인정보 보호책임자: AI Agent 기획·개발 전문가 (정보관리기술사) / 문의: 기재하신 이메일로 회신 예정<br>
+    본 페이지를 통해 수집된 귀사의 비즈니스 데이터 및 기밀 사항은 동의 사유 외에 절대 외부로 유출되지 않음을 보장합니다.
+</p>
 
 </body>
 </html>
