@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>48시간 초고속 AI Agent 구축 및 비즈니스 혁신 센터</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --text-dark: #0f172a;
+            --text-light: #475569;
+            --bg-light: #f8fafc;
+            --accent-color: #e2e8f0;
+            --success-color: #10b981;
+            --purple-color: #8b5cf6;
+        }
+        
+        * {
+            box-shadow: none;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding: 60px 20px;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 40px 20px;
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+        
+        .badge-main {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 20px;
+            border: 1px solid #dbeafe;
+        }
+        
+        h1 {
+            font-size: 2.6rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        
+        h1 span {
+            color: var(--secondary-color);
+        }
+        
+        .hero-desc {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-weight: 400;
+        }
+        
+        /* Core Strength Card */
+        .strength-box {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-left: 6px solid var(--secondary-color);
+            padding: 24px 30px;
+            border-radius: 12px;
+            text-align: left;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        
+        .strength-box h3 {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        
+        /* Grid Section */
+        .section-title {
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-weight: 800;
+            text-align: center;
+        }
+        
+        .grid-usecases {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .usecase-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .usecase-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--accent-color);
+            transition: background 0.2s;
+        }
+        
+        /* Card Hover Effects */
+        .usecase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+            border-color: var(--secondary-color);
+        }
+        
+        .usecase-card:hover::before {
+            background: var(--secondary-color);
+        }
+        
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            width: fit-content;
+        }
+        
+        .tag-prod { background: #fff7ed; color: #ea580c; }
+        .tag-office { background: #f0fdf4; color: #16a34a; }
+        .tag-mkt { background: #faf5ff; color: #9333ea; }
+        .tag-ready { background: #f1f5f9; color: #64748b; }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 10px;
+        }
+        
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-action {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        /* Global CTA Section */
+        .hub-cta {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 100%);
+            color: #ffffff;
+            padding: 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(29, 78, 216, 0.15);
+        }
+        
+        .hub-cta h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        
+        .hub-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn-large {
+            display: inline-block;
+            background: #ffffff;
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+        }
+        
+        .btn-large:hover {
+            background: #f8fafc;
+            transform: translateY(-2px);
+        }
+        
+        .footer-text {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid-usecases { grid-template-columns: 1fr; }
+            h1 { font-size: 2rem; }
+            body { padding: 30px 10px; }
+            .hub-cta { padding: 35px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="hero">
+        <div class="badge-main">정보관리기술사의 48시간 AI 솔루션</div>
+        <h1>말뿐인 AI Agent 담론을 넘어,<br><span>단 2일 만에</span> 실무형 무기를 만듭니다.</h1>
+        <p class="hero-desc">
+            많은 이들이 AI Agent를 이야기하지만, 정작 내 업무와 일상에 어떻게 적용할지 갈피를 잡지 못합니다. 무겁고 비싼 대형 프로젝트 발주 전, <strong>정밀한 비즈니스 문제 정의</strong>를 바탕으로 단 48시간 만에 구동되는 맞춤형 AI Agent의 실체를 직접 확인하십시오.
+        </p>
+        <div class="strength-box">
+            <h3>🎯 핵심 차별성: 초고속 워크플로우 연동 (n8n 가속화 기법)</h3>
+            <p style="font-size: 0.95rem; color: var(--text-light);">
+                기존 시스템과의 유연한 인터페이스 연동 기술을 바탕으로, 코딩에 수개월을 허비하지 않고 비즈니스 코어(Core) 로직을 관통하는 최적의 AI Agent 프로토타입을 단 2일 만에 가시화하여 즉시 시범 테스트 환경을 제공합니다.
+            </p>
+        </div>
+    </div>
+
+    <h2 class="section-title">⚡ 비즈니스 맞춤형 AI Agent 유스케이스 라인업</h2>
+    <div class="grid-usecases">
+        
+        <a href="plant_rca.html" class="usecase-card">
+            <div>
+                <span class="card-tag tag-prod">제조/플랜트/운영</span>
+                <div class="card-title">설비 이상 근본원인분석(RCA) Agent</div>
+                <p class="card-desc">설비 이상 징후 발생 시 베테랑의 머릿속 암묵지와 매뉴얼을 추론 엔진과 결합, 숙련도와 부재 여부에 상관없이 가동 중단(Down-time)을 최소화하는 표준 대응 가이드를 즉각 도출합니다.</p>
+            </div>
+            <div class="card-action">실제 구축 사례 및 데모 보기 →</div>
+        </a>
+
+        <a href="inquiry.html" class="usecase-card">
+            <div>
+                <span class="card-tag tag-office">경영지원/인사/법무</span>
+                <div class="card-title">사내 지식 아카이브 및 규정 검토 Agent</div>
+                <p class="card-desc">수많은 사내 규정, 계약서, 가이드라인 속에서 현업 담당자가 원하는 답을 단 3초 만에 찾아 복잡한 법적·운영 리스크를 사전에 스크리닝하고 초안을 자동 작성합니다.</p>
+            </div>
+            <div class="card-action">맞춤형 도입 문의하기 →</div>
+        </a>
+
+        <a href="inquiry.html" class="usecase-card">
+            <div>
+                <span class="card-tag tag-mkt">마케팅/세일즈/기획</span>
+                <div class="card-title">실시간 시장 트렌드 및 주가/원자재 추적 Agent</div>
+                <p class="card-desc">매일 저녁 다양한 채널에서 흩어진 시장 정보, 경쟁사 동향, 원자재 가격 및 글로벌 지표 데이터를 크롤링하고 요약하여, 내부 의사결정 대시보드에 실시간 자동 업데이트합니다.</p>
+            </div>
+            <div class="card-action">맞춤형 도입 문의하기 →</div>
+        </a>
+
+        <a href="inquiry.html" class="usecase-card">
+            <div>
+                <span class="card-tag tag-ready">고객 서비스/운영</span>
+                <div class="card-title">지능형 2.0 CS 에스컬레이션 보조 Agent</div>
+                <p class="card-desc">단순 챗봇을 넘어 복잡한 기술 문의나 컴플레인 인입 시, 과거 유사 해결 이력을 역추적하여 상담원에게 최적의 답변 스크립트와 대응 프로세스를 제안합니다.</p>
+            </div>
+            <div class="card-action">맞춤형 도입 문의하기 →</div>
+        </a>
+
+    </div>
+
+    <div class="hub-cta">
+        <h2>"귀사의 업무에도 AI Agent가 필요한 순간이 있습니다"</h2>
+        <p>우리 팀의 어떤 반복 업무를 자동화할 수 있을지, 어떤 병목을 해결할 수 있을지 아직 모호하시다면?<br>
+        지금 바로 정보관리기술사의 무료 1:1 비즈니스 진단을 신청하세요.</p>
+        <a href="inquiry.html" class="btn-large">무료 비즈니스 진단 및 MVP 신청</a>
+        <div class="footer-text">정보관리기술사 / AI Agent 기획·개발 전문가 드림</div>
+    </div>
+</div>
+
+</body>
+</html>
