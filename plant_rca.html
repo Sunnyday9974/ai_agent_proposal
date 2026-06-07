@@ -41,6 +41,14 @@
             border: 1px solid rgba(15, 23, 42, 0.02);
         }
 
+/* 상단 내비게이션 바 레이아웃 정돈 */
+        .top-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
         .back-to-hub {
             display: inline-flex;
             align-items: center;
@@ -48,15 +56,16 @@
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 600;
-            margin-bottom: 25px;
             transition: color 0.2s;
             gap: 6px;
+            margin-bottom: 0; /* 네비게이션 바 정렬을 위해 마진 제거 */
         }
         
         .back-to-hub:hover {
             color: var(--secondary-color);
         }
         
+        /* 태그를 우측으로 깔끔하게 정렬 */
         .header-tag {
             display: inline-block;
             background-color: #eff6ff;
@@ -65,12 +74,11 @@
             font-weight: 700;
             padding: 6px 16px;
             border-radius: 50px;
-            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
             border: 1px solid #dbeafe;
-        }
-        
+            margin-bottom: 0; /* 네비게이션 바 정렬을 위해 마진 제거 */
+        }        
         h1 {
             font-size: 2.1rem;
             color: var(--primary-color);
