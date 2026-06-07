@@ -255,4 +255,120 @@
             font-size: 0.85rem;
             color: var(--text-light);
             line-height: 1.55;
-            margin-top: auto; /* 박
+            margin-top: auto; /* 박스가 항상 오른쪽 카드 최하단에 밀착되도록 배치 */
+        }
+
+        .policy-note strong {
+            color: var(--primary-color);
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        @media (max-width: 900px) {
+            .content-grid { grid-template-columns: 1fr; gap: 30px; }
+            body { padding: 40px 15px; }
+            .form-card, .guide-card { padding: 25px; }
+            .main-title { font-size: 1.6rem; }
+            .policy-note { margin-top: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="index.html" class="back-to-hub">← 전체 유스케이스 목록으로 가기</a>
+
+    <h1 class="main-title">무료 비즈니스 진단 및 상담 신청</h1>
+    <p class="main-subtitle">정보관리기술사의 정밀 프로세스 분석을 통해 AI Agent 도입의 최적 접점을 찾아드립니다.</p>
+
+    <div class="content-grid">
+        <div class="form-card">
+            <form action="https://formspree.io/f/xojbzleb" method="POST" onsubmit="alert('신청이 성공적으로 접수되었습니다. 확인 후 24시간 이내에 기재해 주신 연락처로 안내해 드리겠습니다.');">
+                
+                <div class="form-group">
+                    <label for="company">회사명 / 소속 부서<span>*</span></label>
+                    <input type="text" id="company" name="company" class="form-control" placeholder="예: OO전자 생산기술팀 / 개인 신청 시 '개인' 기재" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="name">성함 / 직급<span>*</span></label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="예: 홍길동 팀장" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">이메일 주소<span>*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="example@company.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">연락처 (휴대폰 또는 직통 번호)<span>*</span></label>
+                    <input type="tel" id="phone" name="phone" class="form-control" placeholder="010-0000-0000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="painpoint">현재 현업에서 가장 해결하고 싶은 업무적 병목이나 문제점<span>*</span></label>
+                    <textarea id="painpoint" name="painpoint" class="form-control" placeholder="AI Agent를 적용하고 싶거나 매일 반복되어 자동화가 절실한 수작업, 규정 검색, 데이터 요약 등의 애로사항을 자유롭게 적어주세요." required></textarea>
+                </div>
+
+                <div class="form-group privacy-group">
+                    <div class="privacy-box">
+                        <h4>[필수] 개인정보 및 비즈니스 요구사항 수집·이용 동의</h4>
+                        <div class="privacy-text">
+                            1. 수집 항목: 회사명, 소속 부서, 성함, 직급, 이메일 주소, 연락처, 업무적 병목 및 요구사항<br>
+                            2. 수집 목적: 맞춤형 1:1 무료 비즈니스 진단, 상담 연락, 시범 구동 모델 제안 및 후속 운영 방안 협의<br>
+                            3. 보유 기간: 목적 달성 후 즉시 파기 (단, 안내 및 상담 이력 관리를 위해 최대 1년간 보관 후 파기)<br>
+                            4. 귀하는 동의를 거부할 권리가 있으나, 동의 거부 시 무료 비즈니스 진단 서비스 제공이 제한됩니다.
+                        </div>
+                    </div>
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="privacy_agree" name="privacy_agree" required>
+                        <span>위 개인정보 수집 및 이용 동의에 동의합니다.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn-submit">무료 비즈니스 진단 및 상담 신청서 제출</button>
+            </form>
+        </div>
+
+        <div class="guide-card">
+            <div>
+                <div class="guide-box">
+                    <h3>📢 진단 신청 고객 대상 3대 혜택</h3>
+                    <ul>
+                        <li>현업 페인포인트 타격 중심의 1:1 맞춤형 무료 비즈니스 진단 (온/오프라인)</li>
+                        <li>귀사 프로세스 분석을 통한 맞춤형 AI Agent 도입 타겟 범위 제안</li>
+                        <li>AI Agent 시범 구동 모델 체험 및 향후 세부 운영 방안 논의</li>
+                    </ul>
+                </div>
+
+                <div class="guide-box">
+                    <h3>🔄 도입 검증 프로세스</h3>
+                    <ul>
+                        <li><strong>STEP 01.</strong> 신청서 접수 및 현업 Pain-point 사전 검토</li>
+                        <li><strong>STEP 02.</strong> 1-Day 정밀 진단 미팅 (핵심 자동화 구간 정의)</li>
+                        <li><strong>STEP 03.</strong> 1-Week 초고속 시범 구동 모델 구축 및 현업 검증</li>
+                        <li><strong>STEP 04.</strong> 실무 인프라 반영 및 지속적 구독/유상 운영 전환 협의</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="policy-note">
+                💡 <strong>안내 사항 (비용 정책):</strong><br>
+                본 신청을 통한 1:1 비즈니스 정밀 진단 및 아키텍처 범위 수립(STEP 01~02)까지는 <strong>전액 무료</strong>로 진행됩니다. 이후 단계인 '1주일 시범 구동 모델 구축(STEP 03)'은 진단 미팅 결과에 따라 상호 협의하에 <strong>합리적인 보증금 형태(본 계약 전환 시 전액 환불 및 차감)</strong>로 안전하게 진행됩니다.
+            </div>
+        </div>
+    </div>
+</div>
+
+<p class="footer-text" style="margin-top: 50px; line-height: 1.5; font-size: 0.8rem;">
+    개인정보 보호책임자: AI Agent 기획·개발 전문가 (정보관리기술사) / 문의: 기재하신 이메일로 회신 예정<br>
+    본 페이지를 통해 수집된 귀사의 비즈니스 데이터 및 기밀 사항은 동의 사유 외에 절대 외부로 유출되지 않음을 보장합니다.
+</p>
+
+</body>
+</html>
