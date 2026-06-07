@@ -17,7 +17,6 @@
         }
         
         * {
-            box-shadow: none;
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -40,44 +39,36 @@
         .hero {
             text-align: center;
             margin-bottom: 60px;
-            padding: 40px 20px;
+            padding: 50px 40px;
             background: #ffffff;
             border-radius: 24px;
             box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
             border: 1px solid rgba(0,0,0,0.02);
         }
         
-        .badge-main {
-            display: inline-block;
-            background-color: #eff6ff;
-            color: var(--secondary-color);
-            font-size: 0.9rem;
-            font-weight: 700;
-            padding: 6px 18px;
-            border-radius: 50px;
-            margin-bottom: 20px;
-            border: 1px solid #dbeafe;
-        }
-        
         h1 {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             color: var(--primary-color);
             font-weight: 800;
-            line-height: 1.3;
-            margin-bottom: 20px;
+            line-height: 1.4;
+            margin-bottom: 24px;
             letter-spacing: -1px;
         }
         
         h1 span {
             color: var(--secondary-color);
+            display: block;
+            margin-top: 10px;
+            font-size: 2.6rem;
         }
         
         .hero-desc {
             font-size: 1.2rem;
             color: var(--text-light);
-            max-width: 800px;
-            margin: 0 auto 30px;
+            max-width: 850px;
+            margin: 0 auto 35px;
             font-weight: 400;
+            word-break: keep-all;
         }
         
         /* Core Strength Card */
@@ -140,7 +131,6 @@
             transition: background 0.2s;
         }
         
-        /* Card Hover Effects */
         .usecase-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
@@ -237,7 +227,8 @@
 
         @media (max-width: 768px) {
             .grid-usecases { grid-template-columns: 1fr; }
-            h1 { font-size: 2rem; }
+            h1 { font-size: 1.8rem; }
+            h1 span { font-size: 2rem; }
             body { padding: 30px 10px; }
             .hub-cta { padding: 35px 20px; }
         }
@@ -247,15 +238,16 @@
 
 <div class="container">
     <div class="hero">
-        <div class="badge-main">정보관리기술사의 48시간 AI 솔루션</div>
-        <h1>말뿐인 AI Agent 담론을 넘어,<br><span>단 2일 만에</span> 실무형 무기를 만듭니다.</h1>
+        <h1>"AI가 좋다는 말은 많지만,<br>정작 내 업무 어디에 어떻게 써야 할지 막막하셨습니까?"
+            <span>단 2일 만에 눈으로 확인하는 실무형 AI 무기를 만듭니다.</span>
+        </h1>
         <p class="hero-desc">
-            많은 이들이 AI Agent를 이야기하지만, 정작 내 업무와 일상에 어떻게 적용할지 갈피를 잡지 못합니다. 무겁고 비싼 대형 프로젝트 발주 전, <strong>정밀한 비즈니스 문제 정의</strong>를 바탕으로 단 48시간 만에 구동되는 맞춤형 AI Agent의 실체를 직접 확인하십시오.
+            많은 기업과 비즈니스맨들이 AI 도입을 고민하지만, 구체적인 활용법을 몰라 갈피를 잡지 못하고 있습니다. 수개월짜리 무거운 대형 프로젝트를 발주하기 전, <strong>정밀한 비즈니스 문제 정의</strong>를 바탕으로 단 48시간 만에 실제 구동되는 우리 회사 맞춤형 AI Agent의 실체를 직접 확인하고 검증하십시오.
         </p>
         <div class="strength-box">
-            <h3>🎯 핵심 차별성: 초고속 워크플로우 연동 (n8n 가속화 기법)</h3>
+            <h3>🎯 핵심 가치: 초고속 워크플로우 연동 기술</h3>
             <p style="font-size: 0.95rem; color: var(--text-light);">
-                기존 시스템과의 유연한 인터페이스 연동 기술을 바탕으로, 코딩에 수개월을 허비하지 않고 비즈니스 코어(Core) 로직을 관통하는 최적의 AI Agent 프로토타입을 단 2일 만에 가시화하여 즉시 시범 테스트 환경을 제공합니다.
+                기존 사내 시스템 및 데이터 인프라와의 유연한 연동 기술을 바탕으로, 코딩에 긴 시간을 허비하지 않고 비즈니스의 병목 구간을 관통하는 최적의 AI Agent 프로토타입을 단 2일 만에 완성하여 즉시 시범 테스트 환경을 제공합니다.
             </p>
         </div>
     </div>
@@ -267,7 +259,7 @@
             <div>
                 <span class="card-tag tag-prod">제조/플랜트/운영</span>
                 <div class="card-title">설비 이상 근본원인분석(RCA) Agent</div>
-                <p class="card-desc">설비 이상 징후 발생 시 베테랑의 머릿속 암묵지와 매뉴얼을 추론 엔진과 결합, 숙련도와 부재 여부에 상관없이 가동 중단(Down-time)을 최소화하는 표준 대응 가이드를 즉각 도출합니다.</p>
+                <p class="card-desc">설비 이상 징후 발생 시 베테랑의 머릿속 암묵지와 기술 매뉴얼을 매칭, 담당자의 숙련도 편차나 부재 여부에 상관없이 공장 가동 중단(Down-time)을 최소화하는 최적의 표준 대응 가이드를 즉각 도출합니다.</p>
             </div>
             <div class="card-action">실제 구축 사례 및 데모 보기 →</div>
         </a>
@@ -276,7 +268,7 @@
             <div>
                 <span class="card-tag tag-office">경영지원/인사/법무</span>
                 <div class="card-title">사내 지식 아카이브 및 규정 검토 Agent</div>
-                <p class="card-desc">수많은 사내 규정, 계약서, 가이드라인 속에서 현업 담당자가 원하는 답을 단 3초 만에 찾아 복잡한 법적·운영 리스크를 사전에 스크리닝하고 초안을 자동 작성합니다.</p>
+                <p class="card-desc">수많은 사내 규정, 내부 계약서, 복잡한 업무 가이드라인 속에서 현업 담당자가 원하는 답을 단 3초 만에 찾아 리스크를 사전에 스크리닝하고 필요한 초안 문서를 자동 작성합니다.</p>
             </div>
             <div class="card-action">맞춤형 도입 문의하기 →</div>
         </a>
@@ -285,7 +277,7 @@
             <div>
                 <span class="card-tag tag-mkt">마케팅/세일즈/기획</span>
                 <div class="card-title">실시간 시장 트렌드 및 주가/원자재 추적 Agent</div>
-                <p class="card-desc">매일 저녁 다양한 채널에서 흩어진 시장 정보, 경쟁사 동향, 원자재 가격 및 글로벌 지표 데이터를 크롤링하고 요약하여, 내부 의사결정 대시보드에 실시간 자동 업데이트합니다.</p>
+                <p class="card-desc">매일 다양한 채널에 흩어지는 최신 시장 정보, 경쟁사 동향, 원자재 가격 및 글로벌 지표 데이터를 자동으로 크롤링하고 요약하여, 기업 의사결정 대시보드에 실시간 업데이트합니다.</p>
             </div>
             <div class="card-action">맞춤형 도입 문의하기 →</div>
         </a>
@@ -293,8 +285,8 @@
         <a href="inquiry.html" class="usecase-card">
             <div>
                 <span class="card-tag tag-ready">고객 서비스/운영</span>
-                <div class="card-title">지능형 2.0 CS 에스컬레이션 보조 Agent</div>
-                <p class="card-desc">단순 챗봇을 넘어 복잡한 기술 문의나 컴플레인 인입 시, 과거 유사 해결 이력을 역추적하여 상담원에게 최적의 답변 스크립트와 대응 프로세스를 제안합니다.</p>
+                <div class="card-title">지능형 CS 에스컬레이션 보조 Agent</div>
+                <p class="card-desc">단순 일차원적 답변 챗봇을 넘어 복잡한 기술 문의나 불만 사항 인입 시, 과거 유사 해결 이력을 정밀 추적하여 상담원에게 최적의 답변 스크립트와 대응 시나리오를 제안합니다.</p>
             </div>
             <div class="card-action">맞춤형 도입 문의하기 →</div>
         </a>
@@ -302,11 +294,11 @@
     </div>
 
     <div class="hub-cta">
-        <h2>"귀사의 업무에도 AI Agent가 필요한 순간이 있습니다"</h2>
-        <p>우리 팀의 어떤 반복 업무를 자동화할 수 있을지, 어떤 병목을 해결할 수 있을지 아직 모호하시다면?<br>
-        지금 바로 정보관리기술사의 무료 1:1 비즈니스 진단을 신청하세요.</p>
+        <h2>"우리 팀의 어떤 반복 업무를 AI로 자동화할 수 있을까?"</h2>
+        <p>어디서부터 손을 대야 할지, 어떤 업무에 적용해야 가장 효과적일지 모호하시다면?<br>
+        지금 바로 전문가의 1:1 맞춤형 무료 비즈니스 진단을 신청하세요.</p>
         <a href="inquiry.html" class="btn-large">무료 비즈니스 진단 및 MVP 신청</a>
-        <div class="footer-text">정보관리기술사 / AI Agent 기획·개발 전문가 드림</div>
+        <div class="footer-text">AI Agent 기획·개발 전문가 드림</div>
     </div>
 </div>
 
