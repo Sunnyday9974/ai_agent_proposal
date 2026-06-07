@@ -39,6 +39,23 @@
             padding: 60px 70px;
             border: 1px solid rgba(0, 0, 0, 0.02);
         }
+
+        /* 메인 홈 이동 링크 스타일 추가 */
+        .back-to-hub {
+            display: inline-flex;
+            align-items: center;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+            transition: color 0.2s;
+            gap: 6px;
+        }
+        
+        .back-to-hub:hover {
+            color: var(--secondary-color);
+        }
         
         .header-tag {
             display: inline-block;
@@ -305,6 +322,8 @@
 <body>
 
 <div class="container">
+    <a href="index.html" class="back-to-hub">← 전체 유스케이스 목록으로 가기</a>
+
     <div class="header-tag">AI Agent Case Study</div>
     
     <h1>공장 설비 이상 근본원인분석(RCA) AI Agent 구축 사례</h1>
